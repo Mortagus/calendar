@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+#calendar.show:
+#    path: /calendar
+#    controller: App\Controller\CalendarController::showCalendar
