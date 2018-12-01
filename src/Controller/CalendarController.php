@@ -4,10 +4,10 @@ namespace App\Controller;
 
 use App\Utils\Calendar;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class CalendarController extends Controller
+class CalendarController extends AbstractController
 {
     /**
      * @Route("/calendar", name="calendar.default_show")
@@ -18,7 +18,7 @@ class CalendarController extends Controller
      * @return Response
      * @throws \Exception
      */
-    public function showCalendar($year = null, $month = null)
+    public function showCalendar($year = null, $month = null): Response
     {
         $calendar = new Calendar($month, $year);
         return $this->render('Calendar/show.html.twig', [

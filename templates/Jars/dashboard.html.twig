@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jars Management{% endblock %}
+
+{% block breadcrumb %}{% endblock %}
+{% block pageMainTitle %}RestOS{% endblock %}
+{% block pageSecondTitle %}{% endblock %}
+
+{% block main_container %}
+    <div id="jars-dashboard">
+        <header>
+            <h1>
+                Jars - Dashboard
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addJarModal">
+                    <i class="far fa-plus-square"></i>
+                </button>
+            </h1>
+
+            {% include 'Jars/_edit_jar.modal.html.twig' %}
+        </header>
+        <div class="container">
+            <div class="row">
+                {% for jar in jarCollection %}
+                    <div class="col-sm">
+                        <div class="container-fluid jar-container">
+                            <div class="jar-title">
+                                {{ jar.title }}
+                            </div>
+                            <div class="jar-amount">
+                                {{ jar.amount }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
